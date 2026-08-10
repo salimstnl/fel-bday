@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fel's 24th Birthday</title>
+
+  <!-- Google Fonts: Handwritten fonts for scrapbook captions + cute rounded fonts for UI -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Patrick+Hand&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-color: #fcf4ee;          /* Soft warm parchment/paper */
+      --card-bg: #fffbf7;          /* Creamy scrapbook paper */
+      --primary-red: #d94e4e;      /* Cute vintage red */
+      --dark-red: #8a2525;         /* Deep stamp red */
+      --soft-pink: #fbe3e3;        /* Soft blush pink */
+      --tape-pink: rgba(247, 182, 182, 0.75); /* Semi-transparent washi tape */
+      --tape-yellow: rgba(253, 230, 168, 0.85); /* Accent washi tape */
+      --accent-gold: #fde096;      /* Highlight gold tone */
+      --text-color: #3d2c2e;       /* Soft dark brown instead of harsh black */
+      --border-color: #e8a5a5;     /* Stitched dashed border pink/red */
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Patrick Hand', 'Caveat', cursive, sans-serif;
+      background-color: var(--bg-color);
+      /* Graph paper background texture effect */
+      background-image: 
+        radial-gradient(#e5cfc3 0.8px, transparent 0.8px), 
+        radial-gradient(#e5cfc3 0.8px, var(--bg-color) 0.8px);
+      background-size: 16px 16px;
+      background-position: 0 0, 8px 8px;
+      color: var(--text-color);
+      display: flex;
+      justify-content: center;
+      padding: 12px 8px;
+      line-height: 1.5;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 480px;
+      background: var(--card-bg);
+      border: 3px dashed var(--primary-red);
+      border-radius: 20px;
+      padding: 18px 16px;
+      box-shadow: 0 10px 25px rgba(138, 37, 37, 0.12);
+      position: relative;
+    }
+
+    /* Washi Tape at Top of Scrapbook Page */
+    .container::before {
+      content: '🌧️ FROM STEN TO FEL ⛅';
+      font-family: 'Caveat', cursive;
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: var(--dark-red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-1deg);
+      width: 160px;
+      height: 28px;
+      background: var(--tape-yellow);
+      border: 1px dashed #d1b15d;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+      z-index: 10;
+    }
+
+    /* Header Styling */
+    header {
+      text-align: center;
+      padding-top: 8px;
+      padding-bottom: 12px;
+      border-bottom: 2px dashed var(--border-color);
+      margin-bottom: 14px;
+    }
+
+    header h1 {
+      font-family: 'Caveat', cursive;
+      font-size: 2.1rem;
+      color: var(--dark-red);
+      letter-spacing: 0.5px;
+      line-height: 1.1;
+    }
+
+    header p {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 1.05rem;
+      color: var(--primary-red);
+      margin-top: 2px;
+    }
+
+    /* Section Typography */
+    .section-title {
+      font-family: 'Caveat', cursive;
+      font-size: 1.5rem;
+      color: var(--dark-red);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .fable-text {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 1.05rem;
+      background: var(--soft-pink);
+      padding: 14px;
+      border-radius: 14px;
+      border: 2px dashed var(--border-color);
+      white-space: pre-line;
+      margin-bottom: 14px;
+      position: relative;
+      box-shadow: inset 0 0 8px rgba(217, 78, 78, 0.05);
+    }
+
+    .easter-egg-box {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 1.1rem;
+      background: var(--accent-gold);
+      padding: 14px;
+      border-radius: 14px;
+      border: 2px dashed #cba043;
+      margin-top: 14px;
+      margin-bottom: 14px;
+      position: relative;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+
+    /* Main Cute Button */
+    .btn-main {
+      font-family: 'Quicksand', sans-serif;
+      display: block;
+      width: 100%;
+      background-color: var(--primary-red);
+      color: white;
+      font-size: 1.05rem;
+      font-weight: 700;
+      padding: 12px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(217, 78, 78, 0.3);
+      transition: all 0.2s ease;
+    }
+
+    .btn-main:hover {
+      background-color: var(--dark-red);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(138, 37, 37, 0.35);
+    }
+
+    /* Quiz Styling */
+    .badge-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .stage-badge {
+      font-family: 'Quicksand', sans-serif;
+      background: var(--dark-red);
+      color: white;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 16px;
+      border: 1px dashed #ffffff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .question-box {
+      font-family: 'Caveat', cursive;
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--dark-red);
+      margin-bottom: 12px;
+      line-height: 1.25;
+    }
+
+    .options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .opt-btn {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      background: #ffffff;
+      border: 2px solid var(--border-color);
+      color: var(--text-color);
+      padding: 11px 14px;
+      border-radius: 12px;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+    }
+
+    .opt-btn:hover {
+      background: var(--soft-pink);
+      border-color: var(--primary-red);
+      transform: scale(1.01);
+    }
+
+    .opt-btn.wrong {
+      background: #ffe5e5;
+      border-color: #d90429;
+      color: #900c3f;
+      animation: shake 0.3s ease-in-out;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-4px); }
+      75% { transform: translateX(4px); }
+    }
+
+    .feedback-msg {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 1.15rem;
+      color: #d90429;
+      font-weight: bold;
+      min-height: 24px;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    /* DIY Polaroid Photo Card */
+    .polaroid-card {
+      position: relative;
+      background: #ffffff;
+      padding: 12px 12px 18px 12px;
+      border: 1px solid #e2d2c7;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+      transform: rotate(-1.5deg);
+      margin: 18px 0 16px 0;
+      border-radius: 4px;
+    }
+
+    /* Washi tape over top of polaroid photo */
+    .polaroid-card::before {
+      content: '';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%) rotate(1deg);
+      width: 110px;
+      height: 26px;
+      background: var(--tape-pink);
+      border: 1px dashed #e29ca7;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+      z-index: 5;
+    }
+
+    .polaroid-img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      background-color: #f7eee9;
+      border-radius: 3px;
+      border: 1px solid #efe3dc;
+    }
+
+    .polaroid-story {
+      font-family: 'Caveat', cursive;
+      font-size: 1.35rem;
+      line-height: 1.3;
+      margin-top: 12px;
+      color: #2b1e1f;
+      text-align: center;
+    }
+
+    /* Video Player Container with Scrapbook Frame */
+    .video-card {
+      position: relative;
+      background: #ffffff;
+      padding: 10px 10px 14px 10px;
+      border: 1px solid #e2d2c7;
+      border-radius: 8px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+      margin-bottom: 16px;
+    }
+
+    .video-player {
+      width: 100%;
+      border-radius: 6px;
+      border: 2px solid var(--primary-red);
+      background-color: #000;
+      display: block;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>🎁 Happy 24th Birthday! 🎁</h1>
+    <p>✂️ Our Pre-LDR Memory Scrapbook 🎀</p>
+  </header>
+
+  <!-- ==========================================================================
+      INTRO SECTION: Personal Note + Video 1
+      ========================================================================== -->
+  <div id="intro-section">
+    <h2 class="section-title">💌 Hi Fel!</h2>
+    
+    <div class="fable-text">First of all, I love you so much! Secondly, boy I'm so excited to celebrate ur birthday! 🎉
+
+I made this little digital scrapbook just for u (Believe me, Jul didn't help me with this). I'm not good with long-distance physical gifts like ordering u flowers or food, but at least I'm good with tech. :3
+
+Di section berikutnya, ada memory test yg cuma u yg bisa jawab. Ada 24 questions, dan setiap correct answer bakal unlock 1 special momment kita berdua di bulan Juni-Juli. Tapi sebelum itu, Sten uda bikin video singkat tentang salah satu date kita. 😏
+
+Watch the video, and when u're ready, click the button below to start unlocking our memories!</div>
+
+    <!-- Video 1 -->
+    <div class="video-card">
+      <video controls playsinline preload="metadata" class="video-player">
+        <source src="https://github.com/YOUR-USERNAME/YOUR-REPO/releases/download/v1.0/video1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <button class="btn-main" onclick="startQuiz()">Unlock Memory 1 ➔</button>
+  </div>
+
+  <!-- ==========================================================================
+      QUIZ & REVEAL SECTION (24 STAGES)
+      ========================================================================== -->
+  <div id="quiz-section" class="hidden">
+    <div class="badge-bar">
+      <span class="stage-badge" id="stage-badge">Stage 1 of 24</span>
+    </div>
+
+    <div class="question-box" id="question-text">Loading question...</div>
+    
+    <div class="options-grid" id="options-container">
+      <!-- Multiple choice buttons generate dynamically here -->
+    </div>
+
+    <div class="feedback-msg" id="feedback-msg"></div>
+
+    <!-- POLAROID CARD REVEAL (Unlocked on correct answer) -->
+    <div id="reveal-card" class="hidden">
+      <div class="polaroid-card">
+        <img id="polaroid-img" class="polaroid-img" src="" alt="Memory Photo">
+        <div class="polaroid-story" id="story-text">Story unlocks here...</div>
+      </div>
+      <button class="btn-main" id="next-btn" onclick="nextStage()">Next Memory ➔</button>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+      OUTRO & VIDEO SECTION: Final Wishes + Video 2 + Sky Easter Egg
+      ========================================================================== -->
+  <div id="outro-section" class="hidden">
+    <h2 class="section-title">🌸 All Memories Unlocked! 🌸</h2>
+
+    <!-- Final Wishes Note -->
+    <div class="fable-text">You made it through, congrats baby! 
+
+Thank you for being such an incredible person and for every single moment we've shared so far. Here are my wishes:
+1. semoga u makin happy, in every context u could think of
+2. dan 999 wishes lainnya yg gamuat ditulis disini.
+
+Sekali lagi, Happy Birthday! If you're wondering, tenang ini semua dibikinnya effortless kok. Gak ada satupun elemen di hidup i yg dikorbanin demi bikin ini semua, jadi dont worry. You are my happiness ❤️
+
+One more video is waiting for you below.</div>
+
+    <!-- Video 2 -->
+    <div class="video-card">
+      <video controls playsinline preload="metadata" class="video-player">
+        <source src="https://github.com/YOUR-USERNAME/YOUR-REPO/releases/download/v1.0/video2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <!-- Easter Egg Note for Sky: Children of the Light -->
+    <div class="easter-egg-box">
+      <strong>✨ What's Next? ✨</strong><br>
+      A special place is waiting for u in <em>Sky</em>. I wonder what it is... 🎮
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // ==========================================================================
+  // YOUR 24 MEMORY QUESTIONS, CHOICES & STORIES
+  // Note on 'correct': 0 = Option A, 1 = Option B, 2 = Option C, 3 = Option D.
+  // ==========================================================================
+  const stages = [
+    {
+      question: "On 29 April 2026, you and I went from friends to lovers. Do you remember how exactly I stated my question when I asked you out?",
+      options: ["Do u want to go out with me?", "Can I be ur lover?", "Will u be my girlfriend?", "Can I please be ur boyfriend?"],
+      correct: 3,
+      story: "Inget pas pertama kali kita met in-person di rumah karen setelah pacaran? I ga pernah nyangka bisa senyaman, sesuka, & sesayang ini sama u. I langsung yakin kita cocok di hari itu.",
+      image: "photo1.jpg"
+    },
+    {
+      question: "On our very first date, I brought us cloud bracelets, the sunny charm for you and the rainy charm for me. Do you remember what they mean?",
+      options: ["U're always cheerful like sunny days, I'm always gloomy like rainy days.", "U like rainy days and I like sunny days.", "The gold/white sunny cloud matches ur skin tone, the silver/black rainy cloud suits mine.", "U brighten my days up like sunny cloud, I wash ur troubles away like rainy cloud."],
+      correct: 3,
+      story: "Inget lunch pertama kita pas berduaan? Vibe Petak Enam jadi asik parah pas sama u. Next time kita makan nasi campur pontianak yg proper ya.",
+      image: "photo2.jpg"
+    },
+    {
+      question: "We wrote a bible containing our do's and don'ts in Notion. Do you remember what the first and foremost clause says?",
+      options: ["We shouldn't be a burden to each other. We're here to improve each other's lives.", "From now on, it's not u vs. me. It's us vs. our problems.", "U and I are dating to marry. We will be together forever.", "I'm happy if u're happy. I'm sad if u're sad. Vice versa."],
+      correct: 2,
+      story: "Inget dinner pertama kita pas berduaan? Maaf bikin u makin kangen makanan Indo, tapi I swear kita wajib makan ini lagi pas u balik.",
+      image: "photo3.jpg"
+    },
+    {
+      question: "I remember some of your favourite foods are your mom's cooking, hotpot, and Simpang Raya. Can you tell which of these isn't in my top three?",
+      options: ["Baked Potato", "Ketoprak Telor Grogol", "Indomie cabe ijo", "Miss Gu bone broth malatang"],
+      correct: 2,
+      story: "Inget kuliner di pasar Bintaro? Japanese hamburg ini gacor sih. Ditambah dapet random sample of pizza dari tante sebelah lol.",
+      image: "photo4.jpg"
+    },
+    {
+      question: "During our last night walk, we talked about the physical affection that makes us feel loved the most. Mine has changed now. Can you guess what it is?",
+      options: ["Having ur head resting on my shoulder.", "Being hugged by u with my head on ur chest.", "Being kissed by u on the cheek.", "Being patted on the head by u."],
+      correct: 1,
+      story: "Inget betapa asemnya minuman ini? Next time kita make sure to put normal sugar kalo pake yogurt begini ya. Kembung i ngabisinnya.",
+      image: "photo5.jpg"
+    },
+    {
+      question: "The aquarium date was extremely memorable. Do you remember what my favorite part was?",
+      options: ["Sitting and staring at the tall Raja Ampat aquarium.", "Looking at small tanks and talk about lionfish and other small, colorful fish.", "Sitting in the sea tunnel and waiting for sharks and sea turtles to swim above our heads.", "Walking through the 'Behind The Sea' tour and feeding rays."],
+      correct: 1,
+      story: "Inget foto ini pake kamera u ato i? Gacor banget ini tempat. Tuh u captured small crab juga. U're my best photographer.",
+      image: "photo6.jpg"
+    },
+    {
+      question: "In the 'Dear FP' video we made for your send-off, I wished for two things for you. What are they?",
+      options: ["Going back home safely and being the Fel that I know and love.", "Studying properly and having all your wishes granted perfectly.", "Surrounding yourself with a healthy environment and meeting supportive new friends.", "Having God with you and keeping in touch whenever you need anything."],
+      correct: 0,
+      story: "Inget tour ini? Untung fotonya gak bersepuluh. I berasa hoki i nambah berkali-kali lipat when I'm with u.",
+      image: "photo7.jpg"
+    },
+    {
+      question: "Even though we went on dates, you didn't get much of a chance to listen to my music playlist. But can you guess which of these artists is not in it?",
+      options: ["Avicii", "Tulus", "Jay Chou", "IU"],
+      correct: 0,
+      story: "I masih kebayang u're so cute when u lagi fokus mancing. Eh maksudnya feed the rays n sharks. Mau punya akuarium nanti?",
+      image: "photo8.jpg"
+    },
+    {
+      question: "I'm not sure if you remember, but what did I actually think of you when we first met?",
+      options: ["Wow, this girl is kinda cute, but sadly she's too flirty.", "She seems easy to approach, but I'd never think we can be good friends.", "I feel like we're so similar mindset-wise and personality-wise.", "Okay, we're definitely gonna fight a lot because our values are completely different."],
+      correct: 0,
+      story: "Paling nyaman pas kita duduk bengong doang di depan tank Raja Ampat. Ada yg minta tolong foto, dan ada juga cewe yg foto berjam-jam kek artis, kasian cowonya.",
+      image: "photo9.jpg"
+    },
+    {
+      question: "That 'spoon throwing' moment is our forever inside joke. But what was the real reason I did that?",
+      options: ["You were being nice to my face but making jokes about me behind my back.", "Well, it doesn't matter anyway. Let's just keep it a mystery forever.", "You were spreading rumors about me or my friends.", "The way you talked was annoying and felt completely insensitive."],
+      correct: 1,
+      story: "Boom! Ngiler gak? I suka banget bubur babi pontianak & bangka. Yuk ke Krendang lagi.",
+      image: "photo10.jpg"
+    },
+    {
+      question: "Your mom once told me the two things a guy needs to do before he can date you. What were they?",
+      options: ["Being emotionally mature and caring about you.", "Being emotionally mature and behaving respectfully.", "Caring about you and taking responsibility.", "Caring about you and supporting your goals."],
+      correct: 2,
+      story: "Kita bengong disini kek 15 menit cuma buat ngeliatin pisang setruk di-offload. Tapi gorengan disini emang top sih, apalagi makannya sama u.",
+      image: "photo11.jpg"
+    },
+    {
+      question: "You obviously know I love hugging you. Guess what's the first thing on my mind every time we hug?",
+      options: ["Feeling how your petite body and arm placement always 'melt' surprisingly well into my hug.", "Feeling your heart beat faster against my chest and our breath syncing through my cheek.", "Realizing how surprisingly well you cure my loneliness and make me feel extremely safe emotionally.", "Wanting to give you the warmth you deserve so badly and protect you at all costs."],
+      correct: 3,
+      story: "Aaa maaf banget gak bungkusin buat mama u... Sorry ii, next time ya i bungkusin 20 galon cehuntiaw. Disini i cerita juga ketemu bos i yg suaranya kenceng banget.",
+      image: "photo12.jpg"
+    },
+    {
+      question: "We both have areas we really want to improve for the sake of our long-term bond. What do you think is the one thing I want to fix the most?",
+      options: ["The way I show love and care.", "My choice of words.", "My financial and social status.", "My overthinking and constant worrying."],
+      correct: 3,
+      story: "Inget makan ini sama Jul Ren? Masih ngakak banget keinget Ren meledak di mobil u. Malah kita liat-liatan n nahan ketawa lagi. Parah banget.",
+      image: "photo13.jpg"
+    },
+    {
+      question: "You gave me a ring at the airport. Which finger do I wear it on?",
+      options: ["Pinky", "Index finger", "Ring finger", "Middle finger"],
+      correct: 2,
+      story: "Holding hands kyk gini udah ritual wajib kali ya di setiap date kita. Tangan u kenapa imut bgt sih? God must've poured 99% cuteness points when creating u.",
+      image: "photo14.jpg"
+    },
+    {
+      question: "You have said so many things that helped me get through life. What's your quote that made the strongest impression on me so far?",
+      options: ["I'm proud of you every single day. Thank you for always doing your best.", "Look at how far we've come. You make me the happiest person in the world.", "I love you so much simply because I love you. Nothing else compares to you.", "It's okay to be at the bottom. If you're always at the top, you'll never discover the hidden treasure below."],
+      correct: 1,
+      story: "I got to try ur recommendation! Gacor burgernya, apalagi kalo pake sauce yg garlic mayo ato apalah itu. Pegawai eskrim di bawahnya juga excited abis.",
+      image: "photo15.jpg"
+    },
+    {
+      question: "We've talked a lot about the future, too. What do you think is the most interesting topic for me to talk about?",
+      options: ["Seeing each other again", "Our marriage", "Living together", "Travelling together"],
+      correct: 0,
+      story: "Stikernya mantep-mantep. Sangat moodboosting. Btw ini yg foto u ato i sih? Lupa banget, salfok sama u.",
+      image: "photo16.jpg"
+    },
+    {
+      question: "On our movie date, we watched 'Obsession' in the Velvet Class. Do you remember which seats were booked right before ours?",
+      options: ["A5 and A6", "B7 and B8", "A9 and A10", "A11 and A12"],
+      correct: 0,
+      story: "Kalo kata u, things between us escalated drastically because of this moment. Nanti pas ketemu lagi, apakah physical affection kita akan semakin jadi? Anyway, mw sleep with u again.",
+      image: "photo17.jpg"
+    },
+    {
+      question: "Being long-distance with you is such a ride! Can you guess what I miss the most while we are away from each other?",
+      options: ["Hugging you", "Kissing you", "Holding your hand", "Your baby voice"],
+      correct: 0,
+      story: "Ini bukan tentang pizzanya. Tapi abis makan, itu pertama kalinya i 100% opened up n jadi vulnerable depan u. Makasih ya uda pinjemin ur chest to lean on.",
+      image: "photo18.jpg"
+    },
+    {
+      question: "During our last prayer in the car, we wished for harmony between us. What did I ask for specifically?",
+      options: ["May God hold your hand while I'm not around.", "May God keep you company while I'm not around.", "May God protect you while I'm not around.", "May God guide you while I'm not around."],
+      correct: 1,
+      story: "Ini nih dari u, yg kept me going ketika seharian burnout mikir n kerja. Mama i juga ngira teabagnya bentuk kodok, bukan goldfish.",
+      image: "photo19.jpg"
+    },
+    {
+      question: "When I drove you to the airport, I handed you a letter. What color was the writing paper?",
+      options: ["White", "Yellow", "Pink", "Peach"],
+      correct: 1,
+      story: "Masih disimpen kah? Bisa lipetnya balik kan? Ilang pun gapapa, i bakal bikinin u 999 surat lagi. Btw makasi pulpen birunya, so good n cute. ",
+      image: "photo20.jpg"
+    },
+    {
+      question: "I know this gift is a bit non-standard. But guess the main reason why I decided to give you this present for your birthday?",
+      options: ["I wanted you to feel that this gift is super personal and memorable, since 24 is a very special age.", "I wanted to make something that only I could make so no one could copy it, and only you could access it.", "I wanted to create something you've never received before, but that is easily deliverable virtually and super interactive.", "I wanted to send something to your address at first, but it was way too risky and quite expensive."],
+      correct: 2,
+      story: "Keinget u nangis pas pelukan di mobil pas nganter ke airport. Baby I miss u so much juga. So so glad diizinin jadi orang yg bisa nganterin u. Nanti balik I pick u up ya, of course kalo diizinin u n mama papa u.",
+      image: "photo21.jpg"
+    },
+    {
+      question: "I have so many wishes for you. What do I wish for you the most this year?",
+      options: ["For you to come back home safely and meet your loved ones again.", "For you to find someone who will treat you with all the love you deserve.", "For you to be happy, no matter what that means", "For you to stay healthy and have peace of mind."],
+      correct: 2,
+      story: "Ga expect pedes banget sambel ayam keprabon sekarang. Tapi makasih ya uda ngingetin i makan terus. I'm dead without u kali. Ayuk kuliner lagi.",
+      image: "photo22.jpg"
+    },
+    {
+      question: "All the questions so far had something to do with me. But today, it's all about you. How are you feeling right now?",
+      options: ["Wait, how does Sten guess exactly how I feel right now?", "I wonder if Sten actually is smartly stupid or just stupidly smart?", "How is 'how I feel' even a multiple-choice question?", "Whatever, I'll just answer this out loud and move on."],
+      correct: 3,
+      story: "Lucu. Lucu banget. Gabakal gw ganti sampe u ganti juga. Nextnya apa lagi ya yang bisa couple-an lagi? Pokonya kita bareng terus ya, sayang.",
+      image: "photo23.jpg"
+    },
+    {
+      question: "This is the last one. For this one, you actually have to tell me your answers to these four questions first. Once you've done that, go ahead and pick the absolute most important option to reveal the final story.",
+      options: ["Looking back at this past year, what do you wish you had handled a little differently?", "What is something new you've learned about yourself lately that makes you really proud?", "What is one crazy, exciting, or totally new thing you want to try during your 24th year?", "How can I best support you and make you feel completely loved as you start this next chapter?"],
+      correct: 3,
+      story: "Sebenernya our memories gak cuma 24 doang. Banyak banget yg belum disebut. Mungkin kita baru pacaran doang, but this is the first time I badly committed to spend the rest of my life with someone. Fel mau terima semua kekurangan Sten kah?",
+      image: "photo24.png"
+    }
+  ];
+
+  // ==========================================================================
+  // WEBSITE ENGINE LOGIC
+  // ==========================================================================
+  let currentStageIndex = 0;
+
+  function startQuiz() {
+    document.getElementById('intro-section').classList.add('hidden');
+    document.getElementById('quiz-section').classList.remove('hidden');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    loadStage(currentStageIndex);
+  }
+
+  function loadStage(index) {
+    const stage = stages[index];
+    document.getElementById('stage-badge').innerText = `Memory ${index + 1} of ${stages.length}`;
+    document.getElementById('question-text').innerText = stage.question;
+    document.getElementById('feedback-msg').innerText = '';
+    document.getElementById('reveal-card').classList.add('hidden');
+
+    const optionsContainer = document.getElementById('options-container');
+    optionsContainer.innerHTML = '';
+
+    stage.options.forEach((optText, optIdx) => {
+      const btn = document.createElement('button');
+      btn.className = 'opt-btn';
+      btn.innerText = `${String.fromCharCode(65 + optIdx)}. ${optText}`;
+      btn.onclick = () => handleAnswer(optIdx, btn);
+      optionsContainer.appendChild(btn);
+    });
+  }
+
+  function handleAnswer(selectedIdx, btnElement) {
+    const stage = stages[currentStageIndex];
+
+    if (selectedIdx === stage.correct) {
+      document.getElementById('feedback-msg').style.color = '#2a9d8f';
+      document.getElementById('feedback-msg').innerText = '⛅ Yay! Memory unlocked! ⛅';
+      
+      const buttons = document.querySelectorAll('.opt-btn');
+      buttons.forEach(b => b.disabled = true);
+
+      document.getElementById('polaroid-img').src = stage.image;
+      document.getElementById('story-text').innerText = stage.story;
+      document.getElementById('reveal-card').classList.remove('hidden');
+    } else {
+      btnElement.classList.add('wrong');
+      document.getElementById('feedback-msg').style.color = '#d90429';
+      document.getElementById('feedback-msg').innerText = '🌧️ Boo! Try to remember again! 🌧️';
+    }
+  }
+
+  function nextStage() {
+    currentStageIndex++;
+    if (currentStageIndex < stages.length) {
+      loadStage(currentStageIndex);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      document.getElementById('quiz-section').classList.add('hidden');
+      document.getElementById('outro-section').classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+</script>
+
+</body>
+</html>
